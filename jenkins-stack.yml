@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  jenkins:
+    image: boomfly/jenkins:lts
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "10"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - jenkins_home:/var/jenkins_home
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    networks:
+      - agent_network
+
+networks:
+  agent_network:
+    external: true
+    name: portainer_agent_network
+
+volumes:
+  jenkins_home:

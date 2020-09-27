@@ -1,0 +1,14 @@
+{
+  "name": "jenkins-docker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "docker build -t boomfly/jenkins:lts .",
+    "push": "docker tag boomfly/jenkins:lts boomfly/jenkins:lts && docker push boomfly/jenkins:lts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
